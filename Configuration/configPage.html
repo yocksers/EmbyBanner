@@ -1,0 +1,64 @@
+<div is="emby-scroller" data-controller="configurationpage?name=BannerTextConfigurationjs" class="view flex flex-direction-column scrollFrameY flex-grow" data-horizontal="false" data-forcescrollbar="true" data-centerfocus="true" data-bindheader="true" data-title="EmbyBanner">
+    <div class="scrollSlider flex-direction-column padded-left padded-left-page padded-right padded-top-page padded-bottom-page">
+        <div class="readOnlyContent auto-center" style="max-width: 1200px;">
+            <h1 class="pageTitle">EmbyBanner</h1>
+            
+            <form id="BannerTextConfigForm" class="bannerTextForm">
+                <div class="paper-card" style="padding: 1.5em; margin-top: 2em;">
+                    <h2 style="margin-top:0;">EmbyBanner Settings</h2>
+                    <p style="margin-bottom: 1.5em;">Configure multiple banner text entries that will rotate automatically. Use placeholders like {MovieCount} to display dynamic information.</p>
+
+                    <h3 style="color: #52B54B; margin-top: 1.5em; margin-bottom: 1em;">Global Settings</h3>
+                    
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="txtUpdateInterval">Update Interval (seconds)</label>
+                        <input is="emby-input" type="number" id="txtUpdateInterval" min="1" step="1" />
+                        <div class="fieldDescription">How often to rotate between banner text entries (minimum 1 second)</div>
+                    </div>
+
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="txtLatestMoviesCount">Latest Movies Count</label>
+                        <input is="emby-input" type="number" id="txtLatestMoviesCount" min="1" max="20" step="1" />
+                        <div class="fieldDescription">Number of movies to show when using {LatestMovies} placeholder</div>
+                    </div>
+
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="txtLatestShowsCount">Latest Shows Count</label>
+                        <input is="emby-input" type="number" id="txtLatestShowsCount" min="1" max="20" step="1" />
+                        <div class="fieldDescription">Number of TV shows to show when using {LatestShows} placeholder</div>
+                    </div>
+
+                    <h3 style="color: #52B54B; margin-top: 1.5em; margin-bottom: 1em;">Banner Text Entries</h3>
+                    
+                    <div id="bannerEntriesContainer"></div>
+
+                    <button is="emby-button" type="button" id="btnAddEntry" class="raised block" style="margin-top: 15px; background-color: #52B54B;">
+                        <i class="md-icon">add</i>
+                        <span>Add Entry</span>
+                    </button>
+
+                    <h3 style="color: #52B54B; margin-top: 1.5em; margin-bottom: 1em;">Advanced Settings</h3>
+                    
+                    <div class="checkboxContainer checkboxContainer-withDescription">
+                        <label>
+                            <input is="emby-checkbox" type="checkbox" id="chkEnableLogging" />
+                            <span>Enable Logging</span>
+                        </label>
+                        <div class="fieldDescription checkboxFieldDescription">Enable detailed logging for debugging purposes. Logs will include banner text updates and any errors that occur.</div>
+                    </div>
+
+                    <div style="margin-top: 2em;">
+                        <button is="emby-button" type="submit" class="raised button-submit block">
+                            <i class="md-icon">save</i>
+                            <span>Save</span>
+                        </button>
+                        <button is="emby-button" type="button" id="btnUpdateNow" class="raised block" style="margin-top: 10px; background-color: #52B54B;">
+                            <i class="md-icon">refresh</i>
+                            <span>Update Banner Now</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
